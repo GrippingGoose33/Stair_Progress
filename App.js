@@ -29,7 +29,7 @@ export default function App() {
           const currentRouteIndex = routes.map((r) => r.name).indexOf(route.name);
           const precRouteName = routes[currentRouteIndex -1]?.name;
           const nextRouteName = routes[currentRouteIndex +1]?.name;
-      
+    
         return {
           headerTitle: () => (
             <View style={styles.progress}>
@@ -37,6 +37,8 @@ export default function App() {
               <ProgressBar label={false} progress={route.params.progress} />
             </View>
           ),
+          
+          headerBackVisible: false,
 
           headerLeft: () => (
             <Button 
