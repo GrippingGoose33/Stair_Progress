@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import PropTypes from "react-types";
-import styles from "./style";
+import styles from "./styles";
 import {ProgressBarComponent, progressProps} from "./ProgressBarComponent";
-import style from './style';
 
 function ProgressLabel({show, progress}) {
     return (

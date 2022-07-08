@@ -14,7 +14,7 @@ import styles from './styles';
 
 const Stack = createNativeStackNavigator();
 
-const router = [
+const routes = [
   {name: "First", component: First},
   {name: "Second", component: Second},
   {name: "Third", component: Third},
@@ -26,14 +26,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={({route, navigation}) => {
-          const currentRouteIndex = router.map((r) => r.name).indexOf(route.name);
-          const precRouteName = router[currentRouteIndex -1]?.name;
-          const nextRouteName = router[currentRouteIndex +1]?.name;
+          const currentRouteIndex = routes.map((r) => r.name).indexOf(route.name);
+          const precRouteName = routes[currentRouteIndex -1]?.name;
+          const nextRouteName = routes[currentRouteIndex +1]?.name;
       
         return {
           headerTitle: () => (
             <View style={styles.progress}>
-              <Text>{router.name}</Text>
+              <Text>{routes.name}</Text>
               <ProgressBar label={false} progress={route.params.progress} />
             </View>
           ),
@@ -58,11 +58,11 @@ export default function App() {
       }}
       >
         {
-          router.map((routerProps, index) => (
+          routes.map((routerProps, index) => (
             <Stack.Screen 
             key= {routerProps.name}
             {...routerProps} 
-            initialParams={{}}
+            initialParams={{progress: (index + 1)/routes.length}}
             />
           ))
         }
