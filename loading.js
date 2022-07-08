@@ -7,7 +7,7 @@ const loading = (Wrapped) => {
         const [loading, setLoading] = useState(true);
         useEffect(() => {
             setTimeout(() => {
-                setLoading(true);
+                setLoading(false);
             }, 1000);
         }, []);
 
