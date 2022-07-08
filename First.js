@@ -1,17 +1,13 @@
 import React from 'react';
-import { View, Button} from 'react-native';
-import loading from './loading';
+import { View, Text} from 'react-native';
 import styles from './styles';
 
-const First  = loading(({navigation}) => (
-    <View style={styles.container}>
-        <Button title='Second' 
-            onPress={() => navigation.navigate('Second')}
-        />
-        <Button title='Third'
-            onPress={() => navigation.navigate('Third')}
-        />
-    </View>
-));
+const First  = () => {
+    return(
+        <View style={styles.container}>
+        <Text style={styles.content}>First Content</Text>
+        </View>
+    )
+};
 
 export default First;

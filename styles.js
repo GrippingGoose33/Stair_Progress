@@ -6,4 +6,9 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+
+    content: {
+        fontSize: 23,
+        fontWeight: 'bold',
+    },
 })
