@@ -26,8 +26,36 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={({route, navigation}) => {
-          const currentRouteIndex = router.map((r) => r.name)
-        }}
+          const currentRouteIndex = router.map((r) => r.name).indexOf(route.name);
+          const precRouteName = router[currentRouteIndex -1]?.name;
+          const nextRouteName = router[currentRouteIndex +1]?.name;
+      
+        return {
+          headerTitle: () => (
+            <View style={styles.progress}>
+              <Text>{router.name}</Text>
+              <ProgressBar label={false} progress={route.params.progress} />
+            </View>
+          ),
+
+          headerLeft: () => (
+            <Button 
+              title="Prev" 
+              disabled={currentRouteIndex === 0}
+              onPress={() => navigation.navigate(precRouteName)}
+            />
+          ),
+
+          headerRight: () => (
+            <Button 
+              title="Next" 
+              disabled={currentRouteIndex === 3}
+              onPress={() => navigation.navigate(nextRouteName)}
+            />
+          )
+        }
+        
+      }}
       >
         {
           router.map((routerProps, index) => (
